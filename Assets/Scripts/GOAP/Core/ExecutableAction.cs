@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExecutableAction : MonoBehaviour
+public class ExecutableAction : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Necessary conditions to check
+    /// </summary>
+    public virtual void OnExecuteBegin()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-
+    /// <summary>
+    /// Executng action
+    /// </summary>
     public virtual void ExecuteAction()
     {
+
+    }
+    /// <summary>
+    /// Setting states after ececuting action
+    /// </summary>
+    public virtual void OnExecuteEnd() 
+    { 
 
     }
 }

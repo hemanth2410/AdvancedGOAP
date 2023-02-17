@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GOAP\Core\ExecutableAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Core\Action.cs" />
+    <Compile Include="Assets\Scripts\GOAP\ExtendedClasses\ExecutableAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
