@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ExecutableAction : ScriptableObject
 {
+
+    protected GameObject target;
     /// <summary>
     /// Necessary conditions to check
     /// </summary>
@@ -15,9 +17,9 @@ public class ExecutableAction : ScriptableObject
     /// <summary>
     /// Executng action
     /// </summary>
-    public virtual void ExecuteAction()
+    public virtual void ExecuteAction(GameObject Agent)
     {
-
+        target = Agent;
     }
     /// <summary>
     /// Setting states after ececuting action

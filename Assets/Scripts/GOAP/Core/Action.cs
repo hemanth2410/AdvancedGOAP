@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New_Goap_Action",menuName ="GOAP/GOAP Action")]
 public class Action : ScriptableObject
@@ -9,8 +10,7 @@ public class Action : ScriptableObject
     [SerializeField] List<Conditions> m_PostConditions;
     [SerializeField] int m_Cost;
     [SerializeField] ExecutableAction m_Action;
-
-
+    public GameObject Agent;
     public string ActionName { get { return m_actionName;} }
     public List<Conditions> PreConditions { get { return m_PreConditions; } }
     public List<Conditions> PostConditions { get { return m_PostConditions;} }
@@ -20,7 +20,14 @@ public class Action : ScriptableObject
     /// </summary>
     public void ExecuteAction()
     {
-        m_Action.ExecuteAction();
+        m_Action.ExecuteAction(Agent);
+    }
+    /// <summary>
+    /// Takes in necessary perameters to execute an action succesfully
+    /// </summary>
+    public void SetupAction(GameObject agent)
+    {
+        Agent = agent;
     }
 }
 
