@@ -3,22 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExecutableAction : MonoBehaviour
+public class ExecutableAction : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Hello just checking if this is working or not");
-    }
 
-    // Update is called once per frame
-    void Update()
+    protected GameObject target;
+    /// <summary>
+    /// Necessary conditions to check
+    /// </summary>
+    public virtual void OnExecuteBegin()
     {
-        
-    }
 
-    public virtual void ExecuteAction()
+    }
+    /// <summary>
+    /// Executng action
+    /// </summary>
+    public virtual void ExecuteAction(GameObject Agent)
     {
+        target = Agent;
+    }
+    /// <summary>
+    /// Setting states after ececuting action
+    /// </summary>
+    public virtual void OnExecuteEnd() 
+    { 
 
     }
 }
