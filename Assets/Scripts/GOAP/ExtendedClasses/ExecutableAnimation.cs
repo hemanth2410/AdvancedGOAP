@@ -13,7 +13,7 @@ public class ExecutableAnimation : ExecutableAction
     {
         base.OnExecuteBegin();
         m_AnimatorPerameters.PopulateDictionaries();
-        _animator = target.GetComponent<Animator>();
+        _animator = target.GetComponentInChildren<Animator>();
     }
 
     public override void ExecuteAction(GameObject agent)

@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: IdleAnimationExecutable
   m_EditorClassIdentifier: 
   m_AnimatorPerameters:
-    m_IntPerameters:
-    - perameterName: SomeInt
-      perameterValue: 0
+    m_IntPerameters: []
     m_FloatPerameters:
-    - perameterName: SomeFloat
-      perameterValue: 0
-    m_BoolPerameters:
-    - perameterName: SomeBool
-      perameterValue: 1
-    m_TriggerPerameters:
-    - perameterName: SomeTrigger
+    - perameterName: IdleType
+      perameterValue: 0.1
+    m_BoolPerameters: []
+    m_TriggerPerameters: []

@@ -9,7 +9,7 @@ public class Action : ScriptableObject
     [SerializeField] List<Conditions> m_PreConditions;
     [SerializeField] List<Conditions> m_PostConditions;
     [SerializeField] int m_Cost;
-    [SerializeField] ExecutableAction m_Action;
+    [SerializeField] List<ExecutableAction> m_Actions;
     public GameObject Agent;
     public string ActionName { get { return m_actionName;} }
     public List<Conditions> PreConditions { get { return m_PreConditions; } }
@@ -20,7 +20,10 @@ public class Action : ScriptableObject
     /// </summary>
     public void ExecuteAction()
     {
-        m_Action.ExecuteAction(Agent);
+        foreach(ExecutableAction a in m_Actions)
+        {
+            a.ExecuteAction(Agent);
+        }
     }
     /// <summary>
     /// Takes in necessary perameters to execute an action succesfully
