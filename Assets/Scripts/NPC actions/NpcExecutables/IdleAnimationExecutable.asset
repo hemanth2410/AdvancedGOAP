@@ -12,3 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c33f473a82510d4d8103de97e1875aa, type: 3}
   m_Name: IdleAnimationExecutable
   m_EditorClassIdentifier: 
+  m_AnimatorPerameters:
+    m_IntPerameters:
+    - perameterName: SomeInt
+      perameterValue: 0
+    m_FloatPerameters:
+    - perameterName: SomeFloat
+      perameterValue: 0
+    m_BoolPerameters:
+    - perameterName: SomeBool
+      perameterValue: 1
+    m_TriggerPerameters:
+    - perameterName: SomeTrigger
