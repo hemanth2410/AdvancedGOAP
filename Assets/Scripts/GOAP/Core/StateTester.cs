@@ -15,18 +15,19 @@ public class StateTester : MonoBehaviour
         _actionQueue = new Queue<Action>();
         for (int i = 0; i < actionList.Count; i++)
         {
-            actionList[i].SetupAction(gameObject);
-            _actionQueue.Enqueue(actionList[i]);
+            Action _executableAction = actionList[i];
+            _executableAction.SetupAction(gameObject);
+            _actionQueue.Enqueue(_executableAction);
         }
-        currentActionName = actionList[0].ActionName;
         _currentAction = _actionQueue.Dequeue();
+        currentActionName = _currentAction.ActionName;
     }
 
     // Update is called once per frame
     void Update()
     {
         _currentAction.ExecuteAction();
-        if(_currentAction.ActionFinished)
+        if(_currentAction.ActionFinished && _actionQueue.Count != 0)
         {
             _currentAction = _actionQueue.Dequeue();
             currentActionName = _currentAction.ActionName;
