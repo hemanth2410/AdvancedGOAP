@@ -2,39 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-[CreateAssetMenu(fileName ="New Animation Executable", menuName = "GOAP/GOAP Action Executable")]
+[CreateAssetMenu(fileName ="New Animation Executable", menuName = "GOAP/GOAP Action Executable/Animation Executable")]
 public class ExecutableAnimation : ExecutableAction
 {
     [SerializeField] AnimatorPerameters m_AnimatorPerameters;
 
     //Get reference from attached gameObject
     Animator _animator;
-    public override void OnExecuteBegin()
+    public override void OnExecuteBegin(GameObject Agent)
     {
-        base.OnExecuteBegin();
+        base.OnExecuteBegin(Agent);
         m_AnimatorPerameters.PopulateDictionaries();
         _animator = target.GetComponentInChildren<Animator>();
     }
 
-    public override void ExecuteAction(GameObject agent)
+    public override void ExecuteAction()
     {
-        base.ExecuteAction(agent);
-        for (int i = 0; i < m_AnimatorPerameters.TriggerPerameters.Count; i++)
+        base.ExecuteAction();
+        if(isSubActionRunning)
         {
-            _animator.SetTrigger(m_AnimatorPerameters.TriggerPerameters[i].PerameterName);
+            for (int i = 0; i < m_AnimatorPerameters.TriggerPerameters.Count; i++)
+            {
+                _animator.SetTrigger(m_AnimatorPerameters.TriggerPerameters[i].PerameterName);
+            }
+            foreach (var intPerameter in m_AnimatorPerameters.IntPerameters)
+            {
+                _animator.SetInteger(intPerameter.Key, intPerameter.Value);
+            }
+            foreach (var floatPerameter in m_AnimatorPerameters.FloatPerameters)
+            {
+                _animator.SetFloat(floatPerameter.Key, floatPerameter.Value);
+            }
+            foreach (var boolPerameter in m_AnimatorPerameters.BoolPerameters)
+            {
+                _animator.SetBool(boolPerameter.Key, boolPerameter.Value);
+            }
         }
-        foreach(var intPerameter in m_AnimatorPerameters.IntPerameters)
-        {
-            _animator.SetInteger(intPerameter.Key, intPerameter.Value);
-        }
-        foreach(var floatPerameter in m_AnimatorPerameters.FloatPerameters)
-        {
-            _animator.SetFloat(floatPerameter.Key, floatPerameter.Value);
-        }
-        foreach(var boolPerameter in m_AnimatorPerameters.BoolPerameters)
-        {
-            _animator.SetBool(boolPerameter.Key, boolPerameter.Value);
-        }
+        OnExecuteEnd();
+        // wait for some dealy here
     }
 
     public override void OnExecuteEnd()

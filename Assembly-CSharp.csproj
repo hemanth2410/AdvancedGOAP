@@ -59,6 +59,8 @@
     <Compile Include="Assets\Scripts\GOAP\Core\ExecutableAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Core\Action.cs" />
     <Compile Include="Assets\Scripts\GOAP\ExtendedClasses\ExecutableAnimation.cs" />
+    <Compile Include="Assets\Scripts\GOAP\ExtendedClasses\ExecutableDelay.cs" />
+    <Compile Include="Assets\Scripts\GOAP\Core\StateTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
