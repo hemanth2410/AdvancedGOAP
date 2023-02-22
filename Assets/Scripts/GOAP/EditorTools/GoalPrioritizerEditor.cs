@@ -26,7 +26,7 @@ public class GoalPrioritizerEditor : EditorWindow
     }
     private void OnGUI()
     {
-        GUILayout.Label("GOPA Settings", EditorStyles.boldLabel);
+        GUILayout.Label("GOAP Settings", EditorStyles.boldLabel);
         NpcAgent = EditorGUILayout.TextField("NpcAgent", Selection.activeGameObject.name);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Each GOAP agent will have 100 units and these units will be distributed equally among all the goals", EditorStyles.boldLabel);
