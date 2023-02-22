@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 86
+  controlID: 32
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 87
+  controlID: 17
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 88
+  controlID: 18
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 1103
     height: 584
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Plugins
+    - Assets/Scripts/GOAP/EditorTools
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Plugins
+  - Assets/Scripts/GOAP/EditorTools
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\saihe\AdvancedGOAP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 98930000
-    m_LastClickedID: 37784
-    m_ExpandedIDs: 00000000789100007a9100007c9100009093000098930000b8930000ca93000000ca9a3b
+    m_SelectedIDs: 8a920000
+    m_LastClickedID: 37514
+    m_ExpandedIDs: 00000000e6900000e8900000ea9000007a92000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000789100007a9100007c910000
+    m_ExpandedIDs: 00000000e6900000e8900000ea900000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -488,9 +488,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 28370000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 12fbffff
+      m_SelectedIDs: 36760000
+      m_LastClickedID: 30262
+      m_ExpandedIDs: 14fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -805,9 +805,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.8125095, y: 3.7808435, z: 1.8703184}
+    m_Target: {x: -2.8531897, y: 0.4124176, z: -0.8274387}
     speed: 2
-    m_Value: {x: -6.8125095, y: 3.7808435, z: 1.8703184}
+    m_Value: {x: -2.8531897, y: 0.4124176, z: -0.8274387}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -854,9 +854,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.006894629, y: 0.8539449, z: 0.0112476535, w: -0.5202753}
+    m_Target: {x: -0.10593637, y: 0.69172084, z: -0.10373065, w: -0.7068397}
     speed: 2
-    m_Value: {x: 0.0068943454, y: 0.8539098, z: 0.011247191, w: -0.5202539}
+    m_Value: {x: -0.105932005, y: 0.6916923, z: -0.10372637, w: -0.70681053}
   m_Size:
     m_Target: 3.6209526
     speed: 2
