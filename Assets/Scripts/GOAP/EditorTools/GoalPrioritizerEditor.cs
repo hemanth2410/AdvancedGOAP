@@ -96,6 +96,16 @@ public class GoalPrioritizerEditor : EditorWindow
             GUI.EndScrollView(handleScrollWheel: true);
         }
         GUI.EndGroup();
+        GUILayout.BeginHorizontal();
+        if(GUILayout.Button("Add goal item"))
+        {
+
+        }
+        if(GUILayout.Button("Remove Last item"))
+        {
+
+        }
+        GUILayout.EndHorizontal();
         this.firstOnGUIIterationAfterInitialize = false;
     }
     private void Initilize()
@@ -159,6 +169,9 @@ public class GoalPrioritizerEditor : EditorWindow
 
         // Initial resizing of the content.
         this._multiColoumnHeader.ResizeToFit();
+        // load goals from NPC;
+        GoalDataStructure _g = Selection.activeGameObject.GetComponent<NpcAgent>().GoalDataStructure;
+
     }
     private void Awake()
     {
