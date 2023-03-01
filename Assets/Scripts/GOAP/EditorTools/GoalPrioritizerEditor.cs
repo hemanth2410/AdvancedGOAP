@@ -119,7 +119,7 @@ public class GoalPrioritizerEditor : EditorWindow
                 allowToggleVisibility = false,
                 autoResize = true,
                 minWidth = 100,
-                maxWidth = 250,
+                maxWidth = 800,
                 canSort = true,
                 sortingArrowAlignment = TextAlignment.Right,
                 headerContent = new GUIContent("Goal","Goal of the NPC"),
@@ -145,17 +145,6 @@ public class GoalPrioritizerEditor : EditorWindow
                 canSort = false,
                 sortingArrowAlignment = TextAlignment.Right,
                 headerContent = new GUIContent("Triggers","What are the triggers that will change priorities of this perticular goal"),
-                headerTextAlignment = TextAlignment.Center,
-            },
-            new MultiColumnHeaderState.Column()
-            {
-                allowToggleVisibility = false,
-                autoResize = true,
-                minWidth = 100,
-                maxWidth = 250,
-                canSort = false,
-                sortingArrowAlignment = TextAlignment.Right,
-                headerContent = new GUIContent("Priority changes","How much change will this trigger in priority"),
                 headerTextAlignment = TextAlignment.Center,
             },
         };
