@@ -53,6 +53,10 @@ public class NpcAgent : MonoBehaviour
         if(beginExecuteAction && currentAction != null)
         {
             currentAction.ExecuteAction();
+            if (currentAction.ActionFinished && _actionQueue.Count != 0)
+            {
+                currentAction = _actionQueue.Dequeue();
+            } 
         }
     }
     private void FixedUpdate()

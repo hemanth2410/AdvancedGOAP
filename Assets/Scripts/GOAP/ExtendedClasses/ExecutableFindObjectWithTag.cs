@@ -9,6 +9,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
     [SerializeField] LayerMask healthLayerMask;
     [SerializeField] float sensitiveRadius;
     Vector3 _target;
+    Transform _childTransform;
     public override void OnExecuteBegin(GameObject Agent)
     {
         base.OnExecuteBegin(Agent);
@@ -30,7 +31,8 @@ public class ExecutableFindObjectWithTag : ExecutableAction
         }
         _target = _nearestTransform.position;
         Agent.GetComponentInChildren<NavMeshAgent>().SetDestination(_target);
-
+        NavMeshAgent _a = Agent.GetComponentInChildren<NavMeshAgent>();
+        _childTransform = _a.transform;
     }
     public override void OnExecuteEnd()
     {
@@ -39,7 +41,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
     public override void ExecuteAction()
     {
         base.ExecuteAction();
-        if(Vector3.Distance(target.transform.position , _target) < 1.0f)
+        if(Vector3.Distance(_childTransform.position , _target) < 1.0f)
         {
             OnExecuteEnd();
         }

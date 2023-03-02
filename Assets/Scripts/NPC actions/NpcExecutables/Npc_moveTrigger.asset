@@ -17,4 +17,5 @@ MonoBehaviour:
     m_IntPerameters: []
     m_FloatPerameters: []
     m_BoolPerameters: []
-    m_TriggerPerameters: []
+    m_TriggerPerameters:
+    - perameterName: Walk
