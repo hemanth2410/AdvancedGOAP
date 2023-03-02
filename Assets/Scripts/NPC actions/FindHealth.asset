@@ -16,7 +16,7 @@ MonoBehaviour:
   m_PreConditions:
   - conditionName: HealthItem
     conditionValue: 1
-  - conditionName: Heal
+  - conditionName: CanHeal
     conditionValue: 1
   m_PostConditions:
   - conditionName: Heal

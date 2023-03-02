@@ -12,6 +12,7 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] NpcGoals _liveAction;
     [SerializeField] Beliefs _beliefs;
     [SerializeField] float _health = 100.0f;
+    [SerializeField] ActionPool _actionPool;
     Planner _planner;
     float maxHealth = 0.0f;
     float _healthPriority = 0.0f;
@@ -27,6 +28,11 @@ public class NpcAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _availableActions = _actionPool.ActionList;
+        for (int a = 0; a < _availableActions.Count; a++)
+        {
+            _availableActions[a].PerformPreSetup();
+        }
         for (int i = 0; i < _goals.GoalList.Count; i++)
         {
             _goalDictionary[_goals.GoalList[i].GoalName] = _goals.GoalList[i].GoalValue;
@@ -66,13 +72,17 @@ public class NpcAgent : MonoBehaviour
             g.GoalValue = v.Value;
             _liveAction.GoalList.Add(g);
         }
+        //foreach(KeyValuePair<string, float> x in _liveActionDictionary)
+        //{
+        //    _beliefDictionary[x.Key] = x.Value;
+        //}
         if(currentAction != null && !currentAction.ActionFinished)
         {
             return;
         }
         // define goals dictionary here, This is modified every fixed update for now
         // A priority system will be implemented soon
-        if (_planner == null || _actionQueue != null)
+        if (_planner == null || _actionQueue == null)
         {
             beginExecuteAction = false;
             _planner = new Planner();
@@ -86,10 +96,10 @@ public class NpcAgent : MonoBehaviour
             if(_actionQueue != null)
             {
                 Debug.Log("Current goal = " + firstGoal.Key);
-            }
-            foreach(Action a in _actionQueue)
-            {
-                a.SetupAction(gameObject);
+                foreach (Action a in _actionQueue)
+                {
+                    a.SetupAction(gameObject);
+                }
             }
         }
         if(_actionQueue != null && _actionQueue.Count > 0)

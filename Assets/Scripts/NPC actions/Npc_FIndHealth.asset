@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_actionName: 
   m_PreConditions:
-  - conditionName: Heal
+  - conditionName: LowHealth
     conditionValue: 1
   m_PostConditions:
   - conditionName: HealthItem
     conditionValue: 1
-  - conditionName: Heal
+  - conditionName: CanHeal
     conditionValue: 1
   m_Cost: 0
   m_Actions:

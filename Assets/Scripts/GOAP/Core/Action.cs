@@ -37,18 +37,22 @@ public class Action : ScriptableObject
     /// </summary>
     public void SetupAction(GameObject agent)
     {
-        foreach(var a in m_PreConditions)
-        {
-            _preConditionsDictionary[a.ConditionName] = a.ConditionValue;
-        }
-        foreach(var a in m_PostConditions)
-        {
-            _afterEffects[a.ConditionName] = a.ConditionValue;
-        }
+        
         Agent = agent;
         foreach(ExecutableAction a in m_Actions)
         {
             a.OnExecuteBegin(Agent);
+        }
+    }
+    public void PerformPreSetup()
+    {
+        foreach (var a in m_PreConditions)
+        {
+            _preConditionsDictionary[a.ConditionName] = a.ConditionValue;
+        }
+        foreach (var a in m_PostConditions)
+        {
+            _afterEffects[a.ConditionName] = a.ConditionValue;
         }
     }
     public bool PreperformAction()
