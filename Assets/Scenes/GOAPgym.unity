@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.5537, g: 2263.3438, b: 3286.3867, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -494,6 +494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044414356}
+  - component: {fileID: 1044414357}
   m_Layer: 0
   m_Name: NpcActionPool
   m_TagString: Untagged
@@ -516,6 +517,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044414357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044414355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a933e3df08c7040b9e6c6d23a43d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionList:
+  - {fileID: 11400000, guid: c2732a9b6732a8341881c8a1830ff31a, type: 2}
+  - {fileID: 11400000, guid: 29a49561636e8554088c7aba7b35d584, type: 2}
+  - {fileID: 11400000, guid: 28fd225abf0db8f4ab6e3320749eaad3, type: 2}
+  - {fileID: 11400000, guid: 32f1f6de57b9cdd48a68a813f4611ad1, type: 2}
+  - {fileID: 11400000, guid: e703fa050b088f84c9897d465ae0416d, type: 2}
 --- !u!1001 &1525978058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,7 +656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1754897210}
   - component: {fileID: 1754897211}
-  - component: {fileID: 1754897213}
   - component: {fileID: 1754897212}
   m_Layer: 0
   m_Name: Agent
@@ -705,18 +723,6 @@ MonoBehaviour:
   _beliefs:
     m_believes: []
   _health: 100
---- !u!114 &1754897213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754897209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7b3bb9e7b45ba4d98ded5a40e6599e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1806208558
 PrefabInstance:
   m_ObjectHideFlags: 0

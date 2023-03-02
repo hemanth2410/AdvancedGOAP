@@ -107,6 +107,11 @@ public class NpcAgent : MonoBehaviour
             }
         }
     }
+
+    public void ModifyHealth(float value)
+    {
+        _health = Mathf.Clamp(_health + value,0,maxHealth);
+    }
 }
 
 [System.Serializable]
