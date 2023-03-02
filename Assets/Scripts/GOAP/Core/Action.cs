@@ -10,11 +10,15 @@ public class Action : ScriptableObject
     [SerializeField] List<Conditions> m_PostConditions;
     [SerializeField] int m_Cost;
     [SerializeField] List<ExecutableAction> m_Actions;
+    Dictionary<string, float> _preConditionsDictionary = new Dictionary<string, float>();
+    Dictionary<string, float> _afterEffects = new Dictionary<string, float>();
     bool _actionFinished;
     public GameObject Agent;
     public string ActionName { get { return m_actionName;} }
     public List<Conditions> PreConditions { get { return m_PreConditions; } }
     public List<Conditions> PostConditions { get { return m_PostConditions;} }
+    public Dictionary<string, float> PreConditionsDictionary { get { return _preConditionsDictionary; } }
+    public Dictionary<string, float> AfterEffectsDictionary { get { return _afterEffects; } }
     public int Cost { get { return m_Cost; } }
     public bool ActionFinished { get { return _actionFinished; } }
     /// <summary>
@@ -29,10 +33,18 @@ public class Action : ScriptableObject
         _actionFinished = m_Actions.All(x => x.IsSubActionRunning == false);
     }
     /// <summary>
-    /// Takes in necessary perameters to execute an action succesfully
+    /// Takes in necessary perameters to execute an action succesfully & populates the conditions dictionary.
     /// </summary>
     public void SetupAction(GameObject agent)
     {
+        foreach(var a in m_PreConditions)
+        {
+            _preConditionsDictionary[a.ConditionName] = a.ConditionValue;
+        }
+        foreach(var a in m_PostConditions)
+        {
+            _afterEffects[a.ConditionName] = a.ConditionValue;
+        }
         Agent = agent;
         foreach(ExecutableAction a in m_Actions)
         {
