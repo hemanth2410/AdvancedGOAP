@@ -51,6 +51,10 @@ public class Action : ScriptableObject
             a.OnExecuteBegin(Agent);
         }
     }
+    public bool PreperformAction()
+    {
+        return true;
+    }
 }
 
 [System.Serializable]
