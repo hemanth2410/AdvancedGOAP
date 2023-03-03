@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238525ae8342cc4418912c5d7ed7dcdb, type: 3}
   m_Name: FindBuddy
   m_EditorClassIdentifier: 
-  isSubActionRunning: 1
+  isSubActionRunning: 0
   healthLayerMask:
     serializedVersion: 2
     m_Bits: 2048

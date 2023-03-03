@@ -24,4 +24,5 @@ MonoBehaviour:
   m_Cost: 1
   m_Actions:
   - {fileID: 11400000, guid: 38b69c74d33d0e242b7e0f3c220b378f, type: 2}
+  - {fileID: 11400000, guid: 65bfd361a6da78a41a04e24e5e95fd9b, type: 2}
   Agent: {fileID: 0}
