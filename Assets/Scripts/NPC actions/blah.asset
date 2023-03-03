@@ -16,5 +16,7 @@ MonoBehaviour:
   m_PreConditions: []
   m_PostConditions: []
   m_Cost: 0
-  m_Actions: []
+  m_Actions:
+  - {fileID: 0}
+  - {fileID: 0}
   Agent: {fileID: 0}

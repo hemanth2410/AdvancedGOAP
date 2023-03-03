@@ -20,7 +20,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
         float nearest = Mathf.Infinity;
         for (int i = 0; i < _healthKits.Length; i++)
         {
-            if (_healthKits[i].GetComponent<HealthKit>())
+            if (_healthKits[i].GetComponent<ExecutablleFindFriend>())
             {
                 if(Vector3.Distance(Agent.transform.position, _healthKits[i].transform.position) < nearest)
                 {

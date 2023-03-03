@@ -19,7 +19,7 @@ public class NpcAgent : MonoBehaviour
     bool beginExecuteAction;
     Queue<Action> _actionQueue = new Queue<Action>();
     List<Action> _availableActions;
-    Dictionary<string,float> _goalDictionary = new Dictionary<string,float>();
+    Dictionary<string,float> goalDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _liveActionDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _beliefDictionary = new Dictionary<string,float>();
     Action currentAction;
@@ -35,7 +35,7 @@ public class NpcAgent : MonoBehaviour
         }
         for (int i = 0; i < _goals.GoalList.Count; i++)
         {
-            _goalDictionary[_goals.GoalList[i].GoalName] = _goals.GoalList[i].GoalValue;
+            goalDictionary[_goals.GoalList[i].GoalName] = _goals.GoalList[i].GoalValue;
         }
         //populate beliefs
         for (int j = 0; j < _beliefs.Believes.Count; j++)
@@ -64,11 +64,11 @@ public class NpcAgent : MonoBehaviour
 
         _liveAction.GoalList.Clear();
         _healthPriority = 1 - (_health / maxHealth);
-        foreach(KeyValuePair<string,float> p in _goalDictionary)
+        foreach(KeyValuePair<string,float> p in goalDictionary)
         {
             _liveActionDictionary[p.Key] = p.Value;
         }
-        _liveActionDictionary["Heal"] = _healthPriority; // need to get these values dynamically
+        //_liveActionDictionary["Heal"] = _healthPriority; // need to get these values dynamically
         foreach(KeyValuePair<string,float> v in _liveActionDictionary)
         {
             Goal g = new Goal();
