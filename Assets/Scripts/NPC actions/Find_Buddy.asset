@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46ffb31d2109d474bab4bf3be44fdf3b, type: 3}
-  m_Name: blah
+  m_Name: Find_Buddy
   m_EditorClassIdentifier: 
   m_actionName: 
-  m_PreConditions: []
-  m_PostConditions: []
-  m_Cost: 0
+  m_PreConditions:
+  - conditionName: BuddyDown
+    conditionValue: 0
+  m_PostConditions:
+  - conditionName: Found
+    conditionValue: 1
+  - conditionName: CanHelp
+    conditionValue: 1
+  m_Cost: 1
   m_Actions:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 38b69c74d33d0e242b7e0f3c220b378f, type: 2}
+  - {fileID: 11400000, guid: 65bfd361a6da78a41a04e24e5e95fd9b, type: 2}
   Agent: {fileID: 0}

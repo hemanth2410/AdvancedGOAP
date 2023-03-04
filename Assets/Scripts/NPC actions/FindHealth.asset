@@ -21,7 +21,7 @@ MonoBehaviour:
   m_PostConditions:
   - conditionName: Heal
     conditionValue: 1
-  m_Cost: 0
+  m_Cost: 4
   m_Actions:
   - {fileID: 11400000, guid: bc21d23b1d6ce52499e34362318b542c, type: 2}
   - {fileID: 11400000, guid: aa95e7452dd68a243b8e734e30983803, type: 2}

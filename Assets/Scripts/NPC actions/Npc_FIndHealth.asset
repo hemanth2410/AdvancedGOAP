@@ -21,7 +21,7 @@ MonoBehaviour:
     conditionValue: 1
   - conditionName: CanHeal
     conditionValue: 1
-  m_Cost: 0
+  m_Cost: 1
   m_Actions:
   - {fileID: 11400000, guid: faeedc971ab35284fbddb2d451ea129d, type: 2}
   - {fileID: 11400000, guid: 5a46d01f3bf98494facfaacbef4df8d0, type: 2}

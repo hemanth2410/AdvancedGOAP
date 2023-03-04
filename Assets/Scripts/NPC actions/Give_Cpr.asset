@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46ffb31d2109d474bab4bf3be44fdf3b, type: 3}
-  m_Name: blah
+  m_Name: Give_Cpr
   m_EditorClassIdentifier: 
   m_actionName: 
-  m_PreConditions: []
-  m_PostConditions: []
-  m_Cost: 0
+  m_PreConditions:
+  - conditionName: Found
+    conditionValue: 1
+  - conditionName: CanHelp
+    conditionValue: 1
+  m_PostConditions:
+  - conditionName: GiveCpr
+    conditionValue: 1
+  m_Cost: 3
   m_Actions:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 40479781d99c8b2419a3e85d2ce25899, type: 2}
+  - {fileID: 11400000, guid: fe65f0bfa92ece441a084539bea23036, type: 2}
   Agent: {fileID: 0}
