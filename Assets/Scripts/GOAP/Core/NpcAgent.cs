@@ -11,6 +11,7 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] NpcGoals _goals;
     [SerializeField] NpcGoals _liveAction;
     [SerializeField] Beliefs _beliefs;
+    [SerializeField] List<string> believesNames;
     [SerializeField] float _health = 100.0f;
     ActionPool _actionPool;
     Planner _planner;
@@ -26,8 +27,10 @@ public class NpcAgent : MonoBehaviour
     public Dictionary<string,float> BeliefDictionary { get { return _beliefDictionary; } }
     public GoalDataStructure GoalDataStructure { get { return m_goalDataStructure;} }
     // Start is called before the first frame update
+    // we need a way to adjust goals and beliefs dynamically
     void Start()
     {
+        believesNames = new List<string>();
         _actionPool = GOAPManager.Instance.NpcActionPool;
         _availableActions = _actionPool.ActionList;
         for (int a = 0; a < _availableActions.Count; a++)
@@ -57,6 +60,11 @@ public class NpcAgent : MonoBehaviour
             if (currentAction.ActionFinished && _actionQueue.Count != 0)
             {
                 currentAction = _actionQueue.Dequeue();
+                believesNames.Clear();
+                foreach (var v in currentAction.PostConditions)
+                {
+                    believesNames.Add(v.ConditionName);
+                }
             } 
         }
     }
@@ -109,8 +117,13 @@ public class NpcAgent : MonoBehaviour
         }
         if(_actionQueue != null && _actionQueue.Count > 0)
         {
+            
             currentAction = _actionQueue.Dequeue();
-            if(currentAction.PreperformAction())
+            foreach (var v in currentAction.PostConditions)
+            {
+                believesNames.Add(v.ConditionName);
+            }
+            if (currentAction.PreperformAction())
             {
                 beginExecuteAction = true;
             }

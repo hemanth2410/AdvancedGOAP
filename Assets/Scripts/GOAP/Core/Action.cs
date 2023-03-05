@@ -59,6 +59,10 @@ public class Action : ScriptableObject
     {
         return true;
     }
+    public void PostPerformAction()
+    {
+        
+    }
 }
 
 [System.Serializable]
