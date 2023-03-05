@@ -12,7 +12,7 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] NpcGoals _liveAction;
     [SerializeField] Beliefs _beliefs;
     [SerializeField] float _health = 100.0f;
-    [SerializeField] ActionPool _actionPool;
+    ActionPool _actionPool;
     Planner _planner;
     float maxHealth = 0.0f;
     float _healthPriority = 0.0f;
@@ -28,6 +28,7 @@ public class NpcAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _actionPool = GOAPManager.Instance.NpcActionPool;
         _availableActions = _actionPool.ActionList;
         for (int a = 0; a < _availableActions.Count; a++)
         {
