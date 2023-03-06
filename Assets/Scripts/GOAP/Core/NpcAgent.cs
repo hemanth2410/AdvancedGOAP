@@ -85,10 +85,6 @@ public class NpcAgent : MonoBehaviour
             g.GoalValue = v.Value;
             _liveAction.GoalList.Add(g);
         }
-        //foreach(KeyValuePair<string, float> x in _liveActionDictionary)
-        //{
-        //    _beliefDictionary[x.Key] = x.Value;
-        //}
         if(currentAction != null && !currentAction.ActionFinished)
         {
             return;
