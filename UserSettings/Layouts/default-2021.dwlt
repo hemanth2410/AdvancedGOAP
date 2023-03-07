@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 88
+  controlID: 19
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 89
+  controlID: 20
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 90
+  controlID: 91
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -440,22 +440,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/NPC actions
+    - Assets/Scripts/GOAP/Core
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/NPC actions
+  - Assets/Scripts/GOAP/Core
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\saihe\AdvancedGOAP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 58}
-    m_SelectedIDs: 98920000
-    m_LastClickedID: 37528
-    m_ExpandedIDs: 0000000050900000589200009092000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 68920000
+    m_LastClickedID: 37480
+    m_ExpandedIDs: 0000000050900000b6910000bc91000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -611,8 +611,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 54750000
-      m_LastClickedID: 30036
+      m_SelectedIDs: 84080000
+      m_LastClickedID: 0
       m_ExpandedIDs: 12fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -928,9 +928,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -97.378784, y: -8.087564, z: -89.48587}
+    m_Target: {x: -127.876236, y: -61.562286, z: -28.170269}
     speed: 2
-    m_Value: {x: -97.378784, y: -8.087564, z: -89.48587}
+    m_Value: {x: -127.876236, y: -61.562286, z: -28.170269}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -977,13 +977,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.010781392, y: 0.9422197, z: -0.0305461, w: -0.33351395}
+    m_Target: {x: -0.13085803, y: 0.79340297, z: -0.18358582, w: -0.56546}
     speed: 2
-    m_Value: {x: -0.010781077, y: 0.942192, z: -0.030545205, w: -0.33350417}
+    m_Value: {x: -0.13085406, y: 0.79337883, z: -0.18358023, w: -0.56544286}
   m_Size:
-    m_Target: 74.412315
+    m_Target: 79.95299
     speed: 2
-    m_Value: 74.412315
+    m_Value: 79.95299
   m_Ortho:
     m_Target: 0
     speed: 2

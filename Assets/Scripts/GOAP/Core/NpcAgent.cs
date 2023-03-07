@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using System.Linq;
-using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 
 public class NpcAgent : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] Beliefs _beliefs;
     [SerializeField] List<string> believesNames;
     [SerializeField] float _health = 100.0f;
+    [SerializeField] bool isMemoryCompatible;
     ActionPool _actionPool;
     Planner _planner;
     float maxHealth = 0.0f;
@@ -20,6 +21,7 @@ public class NpcAgent : MonoBehaviour
     bool beginExecuteAction;
     Queue<Action> _actionQueue = new Queue<Action>();
     List<Action> _availableActions;
+    NpcMemory _memory;
     Dictionary<string,float> goalDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _liveActionDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _beliefDictionary = new Dictionary<string,float>();
@@ -30,6 +32,10 @@ public class NpcAgent : MonoBehaviour
     // we need a way to adjust goals and beliefs dynamically
     void Start()
     {
+        if(isMemoryCompatible)
+        {
+            _memory = gameObject.AddComponent<NpcMemory>();
+        }
         believesNames = new List<string>();
         _actionPool = GOAPManager.Instance.NpcActionPool;
         _availableActions = _actionPool.ActionList;
@@ -66,6 +72,10 @@ public class NpcAgent : MonoBehaviour
                     believesNames.Add(v.ConditionName);
                 }
             } 
+        }
+        if(isMemoryCompatible)
+        {
+            _memory.UpdateTimers();
         }
     }
     private void FixedUpdate()
