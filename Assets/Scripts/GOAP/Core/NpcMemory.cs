@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NpcMemory : MonoBehaviour
@@ -31,8 +32,11 @@ public class NpcMemory : MonoBehaviour
 
     public void AddMemeryItem(GameObject item, float remainingTime)
     {
-        MemoryItem itemMem = new MemoryItem(item,remainingTime);
-        _memoryItems.Add(itemMem);
+        if(_memoryItems.Any(x => x.ObjectToRemember == item))
+        {
+            MemoryItem itemMem = new MemoryItem(item, remainingTime);
+            _memoryItems.Add(itemMem);
+        }
     }
 }
 
