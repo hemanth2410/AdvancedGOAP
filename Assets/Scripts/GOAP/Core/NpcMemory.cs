@@ -25,6 +25,7 @@ public class NpcMemory : MonoBehaviour
             _memoryItems[i].TimeRemaining -= Time.deltaTime;
             if (_memoryItems[i].TimeRemaining < 0 )
             {
+                //removes memory item once timer is 0
                 _memoryItems.Remove(_memoryItems[i]);
             }
         }
