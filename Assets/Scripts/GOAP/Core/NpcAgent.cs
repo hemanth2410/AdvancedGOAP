@@ -30,6 +30,7 @@ public class NpcAgent : MonoBehaviour
     public GoalDataStructure GoalDataStructure { get { return m_goalDataStructure;} }
     // Start is called before the first frame update
     // we need a way to adjust goals and beliefs dynamically
+    // I need to Adjust Beliefs and goals dynamically so that plannr can plan
     void Start()
     {
         if(isMemoryCompatible)
