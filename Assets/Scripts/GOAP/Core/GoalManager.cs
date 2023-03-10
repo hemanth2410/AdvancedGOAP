@@ -28,6 +28,11 @@ public class GoalManager : MonoBehaviour
     {
         foreach(NpcGoalData npcGoalData in m_NpcGoals)
         {
+            // Here each goal is evaluated based on its own Unique formula
+            // Evaluating all the goals using same formula is meaningless
+            // Because some goals are like booleans either on or off
+            // some are like fuzzy machines, value goes up based on external factors.
+            // the only bad part is if we are performing physics operations, this has to run on main thread.
             npcGoalData.evaluatePriority();
         }
         m_NpcGoals.OrderByDescending(x => x.GoalPriority);

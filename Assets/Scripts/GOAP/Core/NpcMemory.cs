@@ -6,7 +6,8 @@ using UnityEngine;
 public class NpcMemory : MonoBehaviour
 {
     List<MemoryItem> _memoryItems = new List<MemoryItem>();
-    public List<MemoryItem> MemoryItems { get { return _memoryItems; } } 
+    public List<MemoryItem> MemoryItems { get { return _memoryItems; } }
+    public int MaximumNumberOfItemsInMemory;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class NpcMemory : MonoBehaviour
 
     public void AddMemeryItem(GameObject item, float remainingTime)
     {
-        if(_memoryItems.Any(x => x.ObjectToRemember == item))
+        if(!_memoryItems.Any(x => x.ObjectToRemember == item) && _memoryItems.Count < MaximumNumberOfItemsInMemory)
         {
             MemoryItem itemMem = new MemoryItem(item, remainingTime);
             _memoryItems.Add(itemMem);

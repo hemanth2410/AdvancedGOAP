@@ -14,6 +14,7 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] List<string> believesNames;
     [SerializeField] float _health = 100.0f;
     [SerializeField] bool isMemoryCompatible;
+    [SerializeField] int m_MaxItemsInMemory;
     ActionPool _actionPool;
     Planner _planner;
     float maxHealth = 0.0f;
@@ -36,6 +37,7 @@ public class NpcAgent : MonoBehaviour
         if(isMemoryCompatible)
         {
             _memory = gameObject.AddComponent<NpcMemory>();
+            _memory.MaximumNumberOfItemsInMemory = m_MaxItemsInMemory;
         }
         believesNames = new List<string>();
         _actionPool = GOAPManager.Instance.NpcActionPool;
