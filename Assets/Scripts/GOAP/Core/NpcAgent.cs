@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Threading;
 using System.Linq;
 using UnityEditor.SceneManagement;
-
+[RequireComponent(typeof(GoalManager))]
 public class NpcAgent : MonoBehaviour
 {
     [SerializeField] GoalDataStructure m_goalDataStructure;
