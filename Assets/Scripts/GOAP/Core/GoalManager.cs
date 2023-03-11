@@ -33,6 +33,7 @@ public class GoalManager : MonoBehaviour
             // Because some goals are like booleans either on or off
             // some are like fuzzy machines, value goes up based on external factors.
             // the only bad part is if we are performing physics operations, this has to run on main thread.
+            // how do i know which goal is of high priority when two goals have equal amount of priority
             npcGoalData.evaluatePriority();
         }
         m_NpcGoals.OrderByDescending(x => x.GoalPriority);

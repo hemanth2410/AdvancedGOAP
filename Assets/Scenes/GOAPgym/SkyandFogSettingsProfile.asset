@@ -600,11 +600,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   windOrientation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 260
   windSpeed:
-    m_OverrideState: 0
-    m_Value: 100
+    m_OverrideState: 1
+    m_Value: 500
   fogType:
     m_OverrideState: 1
     m_Value: 0
