@@ -34,6 +34,7 @@ public class GoalManager : MonoBehaviour
             // some are like fuzzy machines, value goes up based on external factors.
             // the only bad part is if we are performing physics operations, this has to run on main thread.
             // how do i know which goal is of high priority when two goals have equal amount of priority
+            // So we can code a custom priority system for each goal. that adds to master priority after that we can evaluate these values
             npcGoalData.evaluatePriority();
         }
         m_NpcGoals.OrderByDescending(x => x.GoalPriority);
