@@ -6,7 +6,7 @@ using UnityEngine;
 public class GoalManager : MonoBehaviour
 {
     [SerializeField] List<NpcGoalData> m_NpcGoals;
-    NpcGoalData _NpcGoalData;
+    [SerializeField] NpcGoalData _NpcGoalData;
     public List<NpcGoalData> NpcGoals { get { return m_NpcGoals; } }
     public NpcGoalData NpcGoalData { get { return _NpcGoalData; } }
     //This class should be able to dynamically adjust the goal on priority
@@ -15,7 +15,12 @@ public class GoalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        NpcGoalData[] _goals = GetComponents<NpcGoalData>();
+        m_NpcGoals = _goals.ToList();
+        for (int i = 0; i < _goals.Length; i++)
+        {
+            _goals[i].GetBelieves();
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +31,7 @@ public class GoalManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        foreach(NpcGoalData npcGoalData in m_NpcGoals)
+        foreach (NpcGoalData npcGoalData in m_NpcGoals)
         {
             // Here each goal is evaluated based on its own Unique formula
             // Evaluating all the goals using same formula is meaningless

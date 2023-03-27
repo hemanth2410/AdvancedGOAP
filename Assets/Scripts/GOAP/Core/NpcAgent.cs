@@ -8,6 +8,12 @@ using UnityEditor.SceneManagement;
 public class NpcAgent : MonoBehaviour
 {
     [SerializeField] GoalDataStructure m_goalDataStructure;
+    [Header("NPC mind")]
+    [SerializeField][Range(0,1)] float m_Killer;
+    [SerializeField][Range(0,1)] float m_Achiever;
+    [SerializeField][Range(0,1)] float m_Socializer;
+    [SerializeField][Range(0,1)] float m_Explorer;
+    [Space]
     [SerializeField] NpcGoals _goals;
     [SerializeField] NpcGoals _liveAction;
     [SerializeField] Beliefs _beliefs;
@@ -34,6 +40,12 @@ public class NpcAgent : MonoBehaviour
     // I need to Adjust Beliefs and goals dynamically so that plannr can plan
     void Start()
     {
+        //setup NPC mind
+        m_Killer = Random.Range(0.0f, 1.0f);
+        m_Achiever = Random.Range(0.0f, 1.0f);
+        m_Socializer = 1 - m_Killer;
+        m_Explorer = 1 - m_Achiever;
+
         if(isMemoryCompatible)
         {
             _memory = gameObject.AddComponent<NpcMemory>();
@@ -63,7 +75,8 @@ public class NpcAgent : MonoBehaviour
     void Update()
     {
         _health -= Time.deltaTime;
-        if(beginExecuteAction && currentAction != null)
+        _beliefDictionary["Health"] = _health;
+        if (beginExecuteAction && currentAction != null)
         {
             currentAction.ExecuteAction();
             if (currentAction.ActionFinished && _actionQueue.Count != 0)
