@@ -7,6 +7,7 @@ public class GoalManager : MonoBehaviour
 {
     [SerializeField] List<NpcGoalData> m_NpcGoals;
     [SerializeField] NpcGoalData _NpcGoalData;
+    [SerializeField] goalType m_npcType;
     public List<NpcGoalData> NpcGoals { get { return m_NpcGoals; } }
     public NpcGoalData NpcGoalData { get { return _NpcGoalData; } }
     //This class should be able to dynamically adjust the goal on priority
@@ -21,6 +22,12 @@ public class GoalManager : MonoBehaviour
         {
             _goals[i].GetBelieves();
         }
+        //Evaluating NPCtype here
+        string npcType = GetComponent<NpcAgent>().PlayerMind.OrderByDescending(x => x.Value).FirstOrDefault().Key;
+        if (npcType == "Killer") m_npcType = goalType.Killer;
+        if (npcType == "Achiever") m_npcType = goalType.Achiever;
+        if (npcType == "Socializer") m_npcType = goalType.Socializer;
+        if (npcType == "Explorer") m_npcType = goalType.Explorer;
     }
 
     // Update is called once per frame
@@ -43,6 +50,15 @@ public class GoalManager : MonoBehaviour
             npcGoalData.evaluatePriority();
         }
         m_NpcGoals.OrderByDescending(x => x.GoalPriority);
+        // get first goal that allighs with the NPCmind
+        for (int i = 0; i < m_NpcGoals.Count; i++)
+        {
+            if (m_NpcGoals[i].GoalType == m_npcType && m_NpcGoals[i].GoalPriority > 0.75f)
+            {
+                _NpcGoalData = m_NpcGoals[i];
+                return;
+            }
+        }
         _NpcGoalData = m_NpcGoals.First();
     }
 

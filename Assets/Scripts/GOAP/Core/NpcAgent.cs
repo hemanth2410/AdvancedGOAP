@@ -7,6 +7,7 @@ using UnityEditor.SceneManagement;
 [RequireComponent(typeof(GoalManager))]
 public class NpcAgent : MonoBehaviour
 {
+    #region VARIABLES
     [SerializeField] GoalDataStructure m_goalDataStructure;
     [Header("NPC mind")]
     [SerializeField][Range(0,1)] float m_Killer;
@@ -29,12 +30,15 @@ public class NpcAgent : MonoBehaviour
     Queue<Action> _actionQueue = new Queue<Action>();
     List<Action> _availableActions;
     NpcMemory _memory;
+    Dictionary<string, float> playerMind = new Dictionary<string, float>();
     Dictionary<string,float> goalDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _liveActionDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _beliefDictionary = new Dictionary<string,float>();
     Action currentAction;
     public Dictionary<string,float> BeliefDictionary { get { return _beliefDictionary; } }
     public GoalDataStructure GoalDataStructure { get { return m_goalDataStructure;} }
+    public Dictionary<string,float> PlayerMind { get { return  playerMind; } }
+    #endregion
     // Start is called before the first frame update
     // we need a way to adjust goals and beliefs dynamically
     // I need to Adjust Beliefs and goals dynamically so that plannr can plan
@@ -45,7 +49,10 @@ public class NpcAgent : MonoBehaviour
         m_Achiever = Random.Range(0.0f, 1.0f);
         m_Socializer = 1 - m_Killer;
         m_Explorer = 1 - m_Achiever;
-
+        playerMind["Killer"] = m_Killer;
+        playerMind["Achiever"] = m_Achiever;
+        playerMind["Socializer"] = m_Socializer;
+        playerMind["Explorer"] = m_Explorer;
         if(isMemoryCompatible)
         {
             _memory = gameObject.AddComponent<NpcMemory>();
