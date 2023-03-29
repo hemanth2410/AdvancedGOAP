@@ -106,3 +106,5 @@ UserSettings/Layouts/default-2021.dwlt
 *.vsidx
 *.csproj
 *.dwlt
+/ProjectSettings/PackageManagerSettings.asset
+/.vs/AdvancedGOAP/v17/.suo
