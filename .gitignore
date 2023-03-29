@@ -108,3 +108,6 @@ UserSettings/Layouts/default-2021.dwlt
 *.dwlt
 /ProjectSettings/PackageManagerSettings.asset
 /.vs/AdvancedGOAP/v17/.suo
+/.vs/AdvancedGOAP/v17/.suo
+/HDRPSamples.csproj
+/Assembly-CSharp-Editor.csproj
