@@ -27,4 +27,9 @@ public class NpcGoalData : MonoBehaviour
         // When player commmands to do certain thing. 
         // priority when core Priorities are meet;
     }
+
+    public virtual void modifyBelief()
+    {
+
+    }
 }
