@@ -42,6 +42,14 @@ public class NpcAgent : MonoBehaviour
     // Start is called before the first frame update
     // we need a way to adjust goals and beliefs dynamically
     // I need to Adjust Beliefs and goals dynamically so that plannr can plan
+    private void Awake()
+    {
+        if (isMemoryCompatible)
+        {
+            _memory = gameObject.AddComponent<NpcMemory>();
+            _memory.MaximumNumberOfItemsInMemory = m_MaxItemsInMemory;
+        }
+    }
     void Start()
     {
         //setup NPC mind
@@ -53,11 +61,7 @@ public class NpcAgent : MonoBehaviour
         playerMind["Achiever"] = m_Achiever;
         playerMind["Socializer"] = m_Socializer;
         playerMind["Explorer"] = m_Explorer;
-        if(isMemoryCompatible)
-        {
-            _memory = gameObject.AddComponent<NpcMemory>();
-            _memory.MaximumNumberOfItemsInMemory = m_MaxItemsInMemory;
-        }
+        
         believesNames = new List<string>();
         _actionPool = GOAPManager.Instance.NpcActionPool;
         _availableActions = _actionPool.ActionList;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2560.3164, g: 2289.1387, b: 2712.6094, a: 1}
+  m_IndirectSpecularColor: {r: 2558.209, g: 2287.3613, b: 2711.2266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 186052734}
   - component: {fileID: 186052733}
   - component: {fileID: 186052732}
+  - component: {fileID: 186052737}
   m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -722,6 +723,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186052737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186052731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db20ea7085142f42ac448b717b7eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Time: 10
 --- !u!1 &186344468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1194,7 @@ GameObject:
   - component: {fileID: 310095605}
   - component: {fileID: 310095604}
   - component: {fileID: 310095603}
+  - component: {fileID: 310095608}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -1277,6 +1292,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310095608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310095602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db20ea7085142f42ac448b717b7eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Time: 10
 --- !u!1 &316598867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,13 +4593,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377072699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1754897210}
-  m_RootOrder: 1
+  m_Father: {fileID: 1525978059}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1377072701
 MonoBehaviour:
@@ -4587,6 +4615,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FOV: 120
   m_radius: 10
+  m_objectsOfInterests:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!135 &1377072702
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6890,6 +6921,7 @@ GameObject:
   - component: {fileID: 1629805334}
   - component: {fileID: 1629805333}
   - component: {fileID: 1629805332}
+  - component: {fileID: 1629805337}
   m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -6987,6 +7019,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629805337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629805331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db20ea7085142f42ac448b717b7eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Time: 10
 --- !u!1 &1650654743
 GameObject:
   m_ObjectHideFlags: 0
@@ -7096,12 +7141,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754897209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.821}
+  m_LocalPosition: {x: -1.55, y: 0, z: 10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1525978059}
-  - {fileID: 1377072700}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7135,7 +7179,7 @@ MonoBehaviour:
   believesNames: []
   _health: 100
   isMemoryCompatible: 1
-  m_MaxItemsInMemory: 0
+  m_MaxItemsInMemory: 10
 --- !u!114 &1754897213
 MonoBehaviour:
   m_ObjectHideFlags: 0
