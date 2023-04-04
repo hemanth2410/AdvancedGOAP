@@ -20,11 +20,13 @@ public class NpcAgent : MonoBehaviour
     [SerializeField] Beliefs _beliefs;
     [SerializeField] List<string> believesNames;
     [SerializeField] float _health = 100.0f;
+    [SerializeField] float _energy = 100.0f;
     [SerializeField] bool isMemoryCompatible;
     [SerializeField] int m_MaxItemsInMemory;
     ActionPool _actionPool;
     Planner _planner;
     float maxHealth = 0.0f;
+    float energy = 0.0f;
     float _healthPriority = 0.0f;
     bool beginExecuteAction;
     Queue<Action> _actionQueue = new Queue<Action>();
@@ -38,6 +40,7 @@ public class NpcAgent : MonoBehaviour
     public Dictionary<string,float> BeliefDictionary { get { return _beliefDictionary; } }
     public GoalDataStructure GoalDataStructure { get { return m_goalDataStructure;} }
     public Dictionary<string,float> PlayerMind { get { return  playerMind; } }
+    public float Energy { get { return energy; } }
     #endregion
     // Start is called before the first frame update
     // we need a way to adjust goals and beliefs dynamically
@@ -79,6 +82,7 @@ public class NpcAgent : MonoBehaviour
             _beliefDictionary[_beliefs.Believes[j].Name] = _beliefs.Believes[j].Value;
         }
         maxHealth = _health;
+        energy = _energy;
         _healthPriority = 1 - (_health / maxHealth);
     }
 
@@ -168,7 +172,10 @@ public class NpcAgent : MonoBehaviour
             }
         }
     }
-
+    public void ModifyEnergy(float value)
+    {
+        energy = Mathf.Clamp(value, 0.0f, 100.0f);
+    }
     public void ModifyHealth(float value)
     {
         _health = Mathf.Clamp(_health + value,0,maxHealth);

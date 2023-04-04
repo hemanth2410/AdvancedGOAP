@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46ffb31d2109d474bab4bf3be44fdf3b, type: 3}
-  m_Name: Npc_FIndHealth
+  m_Name: Patrole
   m_EditorClassIdentifier: 
-  m_actionName: Find Health
+  m_actionName: Patrol
   m_PreConditions:
-  - conditionName: LowHealth
-    conditionValue: 1
+  - conditionName: Energy
+    conditionValue: 0
   m_PostConditions:
-  - conditionName: HealthItem
-    conditionValue: 1
-  - conditionName: CanHeal
-    conditionValue: 1
+  - conditionName: Patrol
+    conditionValue: 0
   m_Cost: 1
   m_Actions:
-  - {fileID: 11400000, guid: faeedc971ab35284fbddb2d451ea129d, type: 2}
-  - {fileID: 11400000, guid: 5a46d01f3bf98494facfaacbef4df8d0, type: 2}
+  - {fileID: 11400000, guid: bd3ad116753d98346a15173e1745e310, type: 2}
   Agent: {fileID: 0}

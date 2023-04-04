@@ -63,6 +63,7 @@ public class NPCVisionSensor : MonoBehaviour
         
     }
 }
+#if UNITY_EDITOR
 [CustomEditor(typeof(NPCVisionSensor))]
 public class NPCVisionSensor_Editor : Editor
 {
@@ -83,3 +84,4 @@ public class NPCVisionSensor_Editor : Editor
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0 , Mathf.Cos(angleInDegrees* Mathf.Deg2Rad));
     }
 }
+#endif

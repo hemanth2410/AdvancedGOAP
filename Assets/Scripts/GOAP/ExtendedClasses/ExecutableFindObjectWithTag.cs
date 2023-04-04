@@ -29,10 +29,13 @@ public class ExecutableFindObjectWithTag : ExecutableAction
                 }
             }
         }
-        _target = _nearestTransform.position;
-        Agent.GetComponentInChildren<NavMeshAgent>().SetDestination(_target);
-        NavMeshAgent _a = Agent.GetComponentInChildren<NavMeshAgent>();
-        _childTransform = _a.transform;
+        if(_nearestTransform != null)
+        {
+            _target = _nearestTransform.position;
+            Agent.GetComponentInChildren<NavMeshAgent>().SetDestination(_target);
+            NavMeshAgent _a = Agent.GetComponentInChildren<NavMeshAgent>();
+            _childTransform = _a.transform;
+        }
     }
     public override void OnExecuteEnd()
     {
