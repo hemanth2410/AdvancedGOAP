@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
+
 [CreateAssetMenu(fileName = "New_Goap_Action",menuName ="GOAP/GOAP Action")]
 public class Action : ScriptableObject
 {
@@ -61,7 +63,19 @@ public class Action : ScriptableObject
     }
     public void PostPerformAction()
     {
-        
+        // Remove belief here
+        NpcAgent _a = Agent.GetComponent<NpcAgent>();
+        foreach(KeyValuePair<string, float> var in _preConditionsDictionary)
+        {
+            try
+            {
+                _a.RemoveBelief(var.Key, var.Value);
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError("This is what is fucked up : " + ex);
+            }
+        }
     }
 }
 

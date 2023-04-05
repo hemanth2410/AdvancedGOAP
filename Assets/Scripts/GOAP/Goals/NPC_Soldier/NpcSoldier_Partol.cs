@@ -14,9 +14,11 @@ public class NpcSoldier_Partol : NpcGoalData
     {
         base.evaluatePriority();
         m_goalPriority = (GetComponent<NpcAgent>().Energy / 100.0f);
+        modifyBelief();
     }
     public override void modifyBelief()
     {
         base.modifyBelief();
+        GetComponent<NpcAgent>().InjectBelief("Energy", m_goalPriority);
     }
 }

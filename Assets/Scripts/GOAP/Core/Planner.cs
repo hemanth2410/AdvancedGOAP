@@ -138,9 +138,9 @@ public class Planner
     /// <returns></returns>
     bool isActionAchievable(Dictionary<string, float> state, Action action)
     {
-        foreach(KeyValuePair<string, float> pair in state)
+        foreach(KeyValuePair<string, float> pair in action.PreConditionsDictionary)
         {
-            if(!action.PreConditionsDictionary.ContainsKey(pair.Key))
+            if(!state.ContainsKey(pair.Key))
             {
                 return false;
             }

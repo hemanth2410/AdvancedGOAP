@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+[RequireComponent(typeof(NpcAgent))]
 public class GoalManager : MonoBehaviour
 {
     [SerializeField] List<NpcGoalData> m_NpcGoals;
+    [SerializeField] List<NpcGoalData> m_Goals;
     [SerializeField] NpcGoalData _NpcGoalData;
     [SerializeField] goalType m_npcType;
     public List<NpcGoalData> NpcGoals { get { return m_NpcGoals; } }
@@ -49,17 +50,17 @@ public class GoalManager : MonoBehaviour
             // So we can code a custom priority system for each goal. that adds to master priority after that we can evaluate these values
             npcGoalData.evaluatePriority();
         }
-        m_NpcGoals.OrderByDescending(x => x.GoalPriority);
+        m_Goals = m_NpcGoals.OrderByDescending(x => x.GoalPriority).ToList();
         // get first goal that allighs with the NPCmind
         for (int i = 0; i < m_NpcGoals.Count; i++)
         {
-            if (m_NpcGoals[i].GoalType == m_npcType && m_NpcGoals[i].GoalPriority > 0.75f)
+            if (m_Goals[i].GoalType == m_npcType && m_NpcGoals[i].GoalPriority > 0.75f)
             {
-                _NpcGoalData = m_NpcGoals[i];
+                _NpcGoalData = m_Goals[i];
                 return;
             }
         }
-        _NpcGoalData = m_NpcGoals.First();
+        _NpcGoalData = m_Goals.First();
     }
 
 }

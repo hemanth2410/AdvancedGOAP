@@ -20,7 +20,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
         float nearest = Mathf.Infinity;
         for (int i = 0; i < _healthKits.Length; i++)
         {
-            if (_healthKits[i].GetComponent<ExecutablleFindFriend>())
+            if (_healthKits[i].GetComponent<ExecutablleFindFriend>() && _healthKits[i].GetComponent<ExecutablleFindFriend>().NeedHelp)
             {
                 if(Vector3.Distance(Agent.transform.position, _healthKits[i].transform.position) < nearest)
                 {
@@ -35,6 +35,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
             Agent.GetComponentInChildren<NavMeshAgent>().SetDestination(_target);
             NavMeshAgent _a = Agent.GetComponentInChildren<NavMeshAgent>();
             _childTransform = _a.transform;
+            _nearestTransform.GetComponent<ExecutablleFindFriend>().NeedHelp = false;
         }
     }
     public override void OnExecuteEnd()

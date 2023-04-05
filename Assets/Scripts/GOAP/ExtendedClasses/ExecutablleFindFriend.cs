@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExecutablleFindFriend : MonoBehaviour
 {
+    public bool NeedHelp = true;
     // Start is called before the first frame update
     void Start()
     {

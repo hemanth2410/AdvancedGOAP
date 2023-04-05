@@ -11,7 +11,7 @@ public class WayPointNetwork : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetWaypoints();
     }
 
     // Update is called once per frame

@@ -18,7 +18,7 @@ public class ExecutablePatrol : ExecutableAction
         int _rand = Random.Range(0, _networks.Length);
         _network = _networks[_rand];
         _agent = Agent.GetComponent<NpcAgent>();
-        _navMeshAgent = Agent.GetComponent<NavMeshAgent>();
+        _navMeshAgent = Agent.GetComponentInChildren<NavMeshAgent>();
     }
 
     public override void ExecuteAction()

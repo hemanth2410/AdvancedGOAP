@@ -13,5 +13,11 @@ public class NpcSoldier_Idle : NpcGoalData
     {
         base.evaluatePriority();
         m_goalPriority = 1.0f - (GetComponent<NpcAgent>().Energy / 100.0f);
+        modifyBelief();
+    }
+    public override void modifyBelief()
+    {
+        base.modifyBelief();
+        GetComponent<NpcAgent>().InjectBelief("LowEnergy", m_goalPriority);
     }
 }

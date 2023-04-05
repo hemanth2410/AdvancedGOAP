@@ -32,6 +32,7 @@ public class NpcAgent : MonoBehaviour
     Queue<Action> _actionQueue = new Queue<Action>();
     List<Action> _availableActions;
     NpcMemory _memory;
+    GoalManager _goalManager;
     Dictionary<string, float> playerMind = new Dictionary<string, float>();
     Dictionary<string,float> goalDictionary = new Dictionary<string,float>();
     Dictionary<string,float> _liveActionDictionary = new Dictionary<string,float>();
@@ -41,6 +42,7 @@ public class NpcAgent : MonoBehaviour
     public GoalDataStructure GoalDataStructure { get { return m_goalDataStructure;} }
     public Dictionary<string,float> PlayerMind { get { return  playerMind; } }
     public float Energy { get { return energy; } }
+    NpcGoalData _currentGoal;
     #endregion
     // Start is called before the first frame update
     // we need a way to adjust goals and beliefs dynamically
@@ -84,13 +86,14 @@ public class NpcAgent : MonoBehaviour
         maxHealth = _health;
         energy = _energy;
         _healthPriority = 1 - (_health / maxHealth);
+        _goalManager = GetComponent<GoalManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _health -= Time.deltaTime;
-        _beliefDictionary["Health"] = _health;
+        //_health -= Time.deltaTime;
+        //_beliefDictionary["Health"] = _health;
         if (beginExecuteAction && currentAction != null)
         {
             currentAction.ExecuteAction();
@@ -112,40 +115,43 @@ public class NpcAgent : MonoBehaviour
     private void FixedUpdate()
     {
 
-        _liveAction.GoalList.Clear();
-        _healthPriority = 1 - (_health / maxHealth);
-        foreach(KeyValuePair<string,float> p in goalDictionary)
-        {
-            _liveActionDictionary[p.Key] = p.Value;
-        }
-        //_liveActionDictionary["Heal"] = _healthPriority; // need to get these values dynamically
-        foreach(KeyValuePair<string,float> v in _liveActionDictionary)
-        {
-            Goal g = new Goal();
-            g.GoalName = v.Key;
-            g.GoalValue = v.Value;
-            _liveAction.GoalList.Add(g);
-        }
-        if(currentAction != null && !currentAction.ActionFinished)
+        //_liveAction.GoalList.Clear();
+        //_healthPriority = 1 - (_health / maxHealth);
+        //foreach(KeyValuePair<string,float> p in goalDictionary)
+        //{
+        //    _liveActionDictionary[p.Key] = p.Value;
+        //}
+        ////_liveActionDictionary["Heal"] = _healthPriority; // need to get these values dynamically
+        //foreach(KeyValuePair<string,float> v in _liveActionDictionary)
+        //{
+        //    Goal g = new Goal();
+        //    g.GoalName = v.Key;
+        //    g.GoalValue = v.Value;
+        //    _liveAction.GoalList.Add(g);
+        //}
+        var _highPriority = _goalManager.NpcGoalData;
+        if(currentAction != null && !currentAction.ActionFinished && _currentGoal.GoalName == _highPriority.GoalName)
         {
             return;
         }
         // define goals dictionary here, This is modified every fixed update for now
         // A priority system will be implemented soon
-        if (_planner == null || _actionQueue == null)
+        if (_planner == null || _actionQueue == null || _actionQueue.Count == 0 || _highPriority.GoalName != _currentGoal.GoalName)
         {
             beginExecuteAction = false;
             _planner = new Planner();
-            var _prioritizedGoal = from entry in _liveActionDictionary orderby entry.Value descending select entry;
-            var firstGoal = _prioritizedGoal.First();
+            var _prioritizedGoal = _goalManager.NpcGoalData;
+            _currentGoal = _prioritizedGoal;
+            if (_prioritizedGoal == null)
+                return;
             Dictionary<string, float> _goalDictionary = new Dictionary<string, float>
             {
-                { firstGoal.Key, firstGoal.Value }
+                { _prioritizedGoal.GoalName, _prioritizedGoal.GoalPriority }
             };
             _actionQueue = _planner.Plan(_availableActions, _goalDictionary, _beliefDictionary);
             if(_actionQueue != null)
             {
-                Debug.Log("Current goal = " + firstGoal.Key);
+                Debug.Log("Current goal = " + _prioritizedGoal.GoalName);
                 foreach (Action a in _actionQueue)
                 {
                     a.SetupAction(gameObject);
@@ -179,6 +185,20 @@ public class NpcAgent : MonoBehaviour
     public void ModifyHealth(float value)
     {
         _health = Mathf.Clamp(_health + value,0,maxHealth);
+    }
+    public void InjectBelief(string Name, float value)
+    {
+        float _value = 0.0f;
+        if(_beliefDictionary.TryGetValue(Name, out _value))
+        {
+            _beliefDictionary[Name] = value;
+            return;
+        }
+        _beliefDictionary.Add(Name, value);
+    }
+    public void RemoveBelief(string name,  float value)
+    {
+        _beliefDictionary.Remove(name);
     }
 }
 

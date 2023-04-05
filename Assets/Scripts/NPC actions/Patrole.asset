@@ -17,9 +17,10 @@ MonoBehaviour:
   - conditionName: Energy
     conditionValue: 0
   m_PostConditions:
-  - conditionName: Patrol
+  - conditionName: Patrole
     conditionValue: 0
   m_Cost: 1
   m_Actions:
   - {fileID: 11400000, guid: bd3ad116753d98346a15173e1745e310, type: 2}
+  - {fileID: 11400000, guid: 5a46d01f3bf98494facfaacbef4df8d0, type: 2}
   Agent: {fileID: 0}

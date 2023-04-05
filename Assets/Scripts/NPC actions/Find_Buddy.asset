@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ffb31d2109d474bab4bf3be44fdf3b, type: 3}
   m_Name: Find_Buddy
   m_EditorClassIdentifier: 
-  m_actionName: 
+  m_actionName: Find Buddy
   m_PreConditions:
   - conditionName: BuddyDown
     conditionValue: 0

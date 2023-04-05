@@ -15,5 +15,11 @@ public class NpcSoldier_Heal : NpcGoalData
         _believes.TryGetValue("Health", out health);
         health = health / 100.0f;
         m_goalPriority = 1 - health; // this 0.5f should be health
+        modifyBelief();
+    }
+    public override void modifyBelief()
+    {
+        base.modifyBelief();
+        GetComponent<NpcAgent>().InjectBelief("LowHealth", m_goalPriority);
     }
 }

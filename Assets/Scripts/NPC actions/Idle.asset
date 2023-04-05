@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_actionName: Idle
   m_PreConditions:
-  - conditionName: Energy
+  - conditionName: LowEnergy
     conditionValue: 0
   m_PostConditions:
   - conditionName: Idle
