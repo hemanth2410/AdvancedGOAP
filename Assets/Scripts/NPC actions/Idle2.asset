@@ -19,4 +19,5 @@ MonoBehaviour:
   m_Actions:
   - {fileID: 11400000, guid: d0af04e18d7f0754bbe50c4713714e8f, type: 2}
   - {fileID: 11400000, guid: 11f93dce8acf543499913645668da638, type: 2}
+  m_isBreakable: 1
   Agent: {fileID: 0}

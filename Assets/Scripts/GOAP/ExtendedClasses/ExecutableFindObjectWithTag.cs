@@ -35,7 +35,7 @@ public class ExecutableFindObjectWithTag : ExecutableAction
             Agent.GetComponentInChildren<NavMeshAgent>().SetDestination(_target);
             NavMeshAgent _a = Agent.GetComponentInChildren<NavMeshAgent>();
             _childTransform = _a.transform;
-            _nearestTransform.GetComponent<ExecutablleFindFriend>().NeedHelp = false;
+            //_nearestTransform.GetComponent<ExecutablleFindFriend>().NeedHelp = false;
         }
     }
     public override void OnExecuteEnd()

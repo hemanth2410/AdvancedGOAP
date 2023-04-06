@@ -23,4 +23,5 @@ MonoBehaviour:
   m_Actions:
   - {fileID: 11400000, guid: bd3ad116753d98346a15173e1745e310, type: 2}
   - {fileID: 11400000, guid: 5a46d01f3bf98494facfaacbef4df8d0, type: 2}
+  m_isBreakable: 1
   Agent: {fileID: 0}

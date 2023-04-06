@@ -130,13 +130,23 @@ public class NpcAgent : MonoBehaviour
         //    _liveAction.GoalList.Add(g);
         //}
         var _highPriority = _goalManager.NpcGoalData;
-        if(currentAction != null && !currentAction.ActionFinished && _currentGoal.GoalName == _highPriority.GoalName)
+        if (currentAction != null && currentAction.IsBreakable)
+        {
+            if (_highPriority != null && _currentGoal != null && _highPriority.GoalName != _currentGoal.GoalName)
+            {
+                Debug.LogError("Attempting to break the goal");
+                _planner = null;
+                _actionQueue = null;
+                currentAction = null;
+            }
+        }
+        if(currentAction != null && !currentAction.ActionFinished)
         {
             return;
         }
         // define goals dictionary here, This is modified every fixed update for now
         // A priority system will be implemented soon
-        if (_planner == null || _actionQueue == null || _actionQueue.Count == 0 || _highPriority.GoalName != _currentGoal.GoalName)
+        if (_planner == null || _actionQueue == null || _actionQueue.Count == 0)
         {
             beginExecuteAction = false;
             _planner = new Planner();

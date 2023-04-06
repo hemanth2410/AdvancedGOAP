@@ -12,6 +12,7 @@ public class Action : ScriptableObject
     [SerializeField] List<Conditions> m_PostConditions;
     [SerializeField] int m_Cost;
     [SerializeField] List<ExecutableAction> m_Actions;
+    [SerializeField] bool m_isBreakable;
     Dictionary<string, float> _preConditionsDictionary = new Dictionary<string, float>();
     Dictionary<string, float> _afterEffects = new Dictionary<string, float>();
     bool _actionFinished;
@@ -23,6 +24,7 @@ public class Action : ScriptableObject
     public Dictionary<string, float> AfterEffectsDictionary { get { return _afterEffects; } }
     public int Cost { get { return m_Cost; } }
     public bool ActionFinished { get { return _actionFinished; } }
+    public bool IsBreakable { get { return m_isBreakable; } }
     /// <summary>
     /// This function executes the given action
     /// </summary>
