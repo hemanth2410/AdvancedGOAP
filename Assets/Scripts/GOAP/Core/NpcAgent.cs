@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Threading;
 using System.Linq;
 using UnityEditor.SceneManagement;
+using System;
+
 [RequireComponent(typeof(GoalManager))]
 public class NpcAgent : MonoBehaviour
 {
@@ -58,8 +60,8 @@ public class NpcAgent : MonoBehaviour
     void Start()
     {
         //setup NPC mind
-        m_Killer = Random.Range(0.0f, 1.0f);
-        m_Achiever = Random.Range(0.0f, 1.0f);
+        m_Killer = UnityEngine.Random.Range(0.0f, 1.0f);
+        m_Achiever = UnityEngine.Random.Range(0.0f, 1.0f);
         m_Socializer = 1 - m_Killer;
         m_Explorer = 1 - m_Achiever;
         playerMind["Killer"] = m_Killer;
@@ -158,7 +160,10 @@ public class NpcAgent : MonoBehaviour
             {
                 { _prioritizedGoal.GoalName, _prioritizedGoal.GoalPriority }
             };
+            DateTime startTime = DateTime.Now;
             _actionQueue = _planner.Plan(_availableActions, _goalDictionary, _beliefDictionary);
+            DateTime endTime = DateTime.Now;
+            Debug.Log(endTime - startTime);
             if(_actionQueue != null)
             {
                 Debug.Log("Current goal = " + _prioritizedGoal.GoalName);
